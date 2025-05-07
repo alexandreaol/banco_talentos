@@ -1,0 +1,5 @@
+As imagens do banner inicial que está em carrosel estão nomeadas como "Flayer", e estão ordenadas de 1 a 3;
+O tamanho máximo desse banner é de Width: 1248 e Height: 313, podendo testar valores maiores que esses porem sem garantia de qualidade. (Se precisar de qualquer alteração no tamanho delas solicitar.)
+
+Os banners dos cards dos cursos estão nomeados com o nome do seu curso em si, sem ordem específica.
+O tamanho deles podem variar, mas inicialmente testar os valores usados no layout, Width: 398 Height: 202;
