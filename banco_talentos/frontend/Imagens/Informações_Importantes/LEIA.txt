@@ -1,0 +1,6 @@
+Aqui estão dispostas as cores e tipografia da página.
+
+Temos dispóniveis, seguindo a documentação do projeto, 3 tons de roxo, 3 tons de laranja, 3 tons de branco e 3 tons de preto.
+As cores usadas em todos os degradês da página estão anexados neste arquivo também (tentem não alterar muito)
+O degradê do texto de apoio (retângulo laranja abaixo do banner incial), foi feito da seguinte maneira (em hexadecimal): #FA751D x #FD9D5D x #FB7419  
+A fonte que deverá ser utilizada será a "Sora", onde serão utilizados poucos pesos, Regular, Semibold e Bold.
