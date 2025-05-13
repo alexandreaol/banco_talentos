@@ -59,5 +59,4 @@ public class AlunoMapper {
 
         return alunoModel;
     }
-
 }
