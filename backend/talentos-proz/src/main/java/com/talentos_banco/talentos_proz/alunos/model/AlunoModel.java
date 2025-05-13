@@ -1,7 +1,10 @@
 package com.talentos_banco.talentos_proz.alunos.model;
 
+import com.talentos_banco.talentos_proz.cursos.model.CursoModel;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity(name = "ALUNO")
 @Data
@@ -41,7 +44,8 @@ public class AlunoModel {
     @Column(name = "soft_skills")
     private String softSkills;
 
-    @OneToMany(mappedBy = "", cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "id_curso")
     private CursoModel curso;
 
 }
