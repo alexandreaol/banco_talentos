@@ -38,12 +38,6 @@ public class AlunoModel {
     @Column(name = "data_formatura")
     private String dataFormatura;
 
-    @Column(name = "areas_interesse")
-    private String areaInteresse;
-
-    @Column(name = "soft_skills")
-    private String softSkills;
-
     @ManyToOne
     @JoinColumn(name = "id_curso")
     private CursoModel curso;

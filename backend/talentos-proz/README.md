@@ -43,8 +43,6 @@ Abaixo estão os principais dados disponíveis para consumo.
   "github_link": "https://github.com/lucas-silva",
   "data_formatura": "12/2025",
   "id_curso": 1,
-  "areas_interesse": "Back-end, APIs, Microservices",
-  "soft_skills": "Comunicação, Trabalho em equipe, Proatividade"
 }
 ~~~
 
@@ -62,11 +60,10 @@ Abaixo estão os principais dados disponíveis para consumo.
 | github\_link     | Texto   | Link para o GitHub do aluno                     |
 | data\_formatura  | Texto   | Data prevista para formatura (ex: "12/2025")    |
 | id\_curso        | Inteiro | ID do curso ao qual está vinculado              |
-| areas\_interesse | Texto   | Áreas de interesse separadas por vírgula        |
-| soft\_skills     | Texto   | Habilidades interpessoais separadas por vírgula |
 
 
-### Relacionamento entre as Tabelas
+
+### Relacionamento entre as Tabelas  
 
 * Cada aluno está vinculado a um curso através do campo id_curso.
 * Um curso pode ter vários alunos.

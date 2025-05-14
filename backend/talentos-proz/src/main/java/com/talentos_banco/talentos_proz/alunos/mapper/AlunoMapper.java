@@ -30,8 +30,6 @@ public class AlunoMapper {
         alunoDTO.setEmail(alunoModel.getEmail());
         alunoDTO.setGithub(alunoModel.getGithub());
         alunoDTO.setDataFormatura(alunoModel.getDataFormatura());
-        alunoDTO.setAreaInteresse(alunoModel.getAreaInteresse());
-        alunoDTO.setSoftSkills(alunoModel.getSoftSkills());
 
         if(alunoModel.getCurso() != null) {
             alunoDTO.setCursoId(alunoModel.getCurso().getId_curso());
@@ -51,13 +49,10 @@ public class AlunoMapper {
         alunoModel.setEmail(alunoDTO.getEmail());
         alunoModel.setGithub(alunoDTO.getGithub());
         alunoModel.setDataFormatura(alunoDTO.getDataFormatura());
-        alunoModel.setAreaInteresse(alunoDTO.getAreaInteresse());
-        alunoModel.setSoftSkills(alunoDTO.getSoftSkills());
 
         CursoModel cursoModel = verificaCurso(alunoDTO.getCursoId());
         alunoModel.setCurso(cursoModel);
 
         return alunoModel;
     }
-
 }

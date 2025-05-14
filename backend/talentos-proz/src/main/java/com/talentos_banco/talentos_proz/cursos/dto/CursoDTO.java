@@ -10,7 +10,10 @@ import java.util.List;
 @Setter
 public class CursoDTO {
     private Long id_curso;
+
     private String nome;
+
     private String codigo;
+
     private List<AlunoDTO> alunos;
 }
