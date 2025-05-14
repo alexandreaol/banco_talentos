@@ -1,11 +1,11 @@
 package com.talentos_banco.talentos_proz.cursos.controller;
 
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.talentos_banco.talentos_proz.cursos.dto.CursoDTO;
 import com.talentos_banco.talentos_proz.cursos.service.CursoService;
@@ -13,14 +13,38 @@ import com.talentos_banco.talentos_proz.cursos.service.CursoService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/Curso")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class CursoController {
     private final CursoService cursoService;
 
-    @GetMapping
+    @GetMapping("/curso")
     public ResponseEntity<List<CursoDTO>> verCursos(){
         List<CursoDTO> curso = cursoService.verCursos();
         return ResponseEntity.ok(curso);
+    }
+
+    @GetMapping("/curso/{id}")
+    public ResponseEntity<CursoDTO> verPorId(@PathVariable("id") Long id) {
+        CursoDTO cursoDTO = cursoService.verCursoId(id);
+        return ResponseEntity.ok(cursoDTO);
+    }
+
+    @PostMapping("/curso")
+    public ResponseEntity<Map<String, String>> adicionarCurso(@RequestBody CursoDTO cursoDTO) {
+        cursoService.adicionarCurso(cursoDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "Curso adicionado!"));
+    }
+
+    @PutMapping("/curso/{id}")
+    public ResponseEntity<Map<String, String>> atualizarCurso(@PathVariable("id") Long id, @RequestBody CursoDTO cursoDTO) {
+        cursoService.atualizarCurso(id, cursoDTO);
+        return ResponseEntity.ok(Map.of("message", "Curso atualizado"));
+    }
+
+    @DeleteMapping("/curso/{id}")
+    public String deletarCurso(@PathVariable("id") Long id) {
+        cursoService.deletarAluno(id);
+        return "Curso apagado";
     }
 }

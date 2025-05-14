@@ -4,6 +4,7 @@ import com.talentos_banco.talentos_proz.alunos.dto.AlunoDTO;
 import com.talentos_banco.talentos_proz.alunos.model.AlunoModel;
 import com.talentos_banco.talentos_proz.cursos.model.CursoModel;
 import com.talentos_banco.talentos_proz.cursos.repository.CursoRepository;
+import com.talentos_banco.talentos_proz.errors.NaoEncontrado;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,7 @@ public class AlunoMapper {
 
     private CursoModel verificaCurso(Long id) {
         return cursoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Curso não encontrado"));
+                .orElseThrow(() -> new NaoEncontrado("Curso não encontrado"));
     }
 
     public AlunoDTO toDTO(AlunoModel alunoModel) {
@@ -54,5 +55,21 @@ public class AlunoMapper {
         alunoModel.setCurso(cursoModel);
 
         return alunoModel;
+    }
+
+    public void updateEntity(AlunoModel alunoModel, AlunoDTO alunoDTO) {
+
+        alunoModel.setNome(alunoDTO.getNome());
+        alunoModel.setSobrenome(alunoDTO.getSobrenome());
+        alunoModel.setIdade(alunoDTO.getIdade());
+        alunoModel.setDescricao(alunoDTO.getDescricao());
+        alunoModel.setTelefone(alunoDTO.getTelefone());
+        alunoModel.setEmail(alunoDTO.getEmail());
+        alunoModel.setGithub(alunoDTO.getGithub());
+        alunoModel.setDataFormatura(alunoDTO.getDataFormatura());
+
+        CursoModel cursoModel = verificaCurso(alunoDTO.getCursoId());
+        alunoModel.setCurso(cursoModel);
+
     }
 }

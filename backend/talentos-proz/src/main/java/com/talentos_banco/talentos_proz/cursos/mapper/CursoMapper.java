@@ -41,4 +41,9 @@ public class CursoMapper {
 
         return cursoModel;
     }
+
+    public void updateEntity(CursoModel cursoModel, CursoDTO cursoDTO) {
+        cursoModel.setNome(cursoDTO.getNome());
+        cursoModel.setCodigo(cursoDTO.getCodigo());
+    }
 }

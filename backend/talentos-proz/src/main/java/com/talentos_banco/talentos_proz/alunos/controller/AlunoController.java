@@ -18,22 +18,34 @@ public class AlunoController {
 
     private final AlunoService alunoService;
 
-    @GetMapping
+    @GetMapping("/aluno")
     public ResponseEntity<List<AlunoDTO>> verAluno() {
         List<AlunoDTO> alunos = alunoService.verAlunos();
         return ResponseEntity.ok(alunos);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<AlunoDTO> verPorId(@PathVariable Long id) {
+    @GetMapping("/aluno/{id}")
+    public ResponseEntity<AlunoDTO> verPorId(@PathVariable("id") Long id) {
         AlunoDTO alunoDTO = alunoService.verAlunoId(id);
         return ResponseEntity.ok(alunoDTO);
     }
 
-    @PostMapping
+    @PostMapping("/aluno")
     public ResponseEntity<Map<String, String>> adicionarAluno(@RequestBody AlunoDTO alunoDTO) {
         AlunoModel alunoModel = alunoService.adicionarAluno(alunoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "Aluno adicionado!"));
+    }
+
+    @PutMapping("/aluno/{id}")
+    public ResponseEntity<Map<String, String>> atualizarAluno(@PathVariable("id") Long id, @RequestBody AlunoDTO alunoDTO) {
+        alunoService.atualizarAluno(id, alunoDTO);
+        return ResponseEntity.ok(Map.of("message", "Aluno atualizado"));
+    }
+
+    @DeleteMapping("/aluno/{id}")
+    public ResponseEntity<Map<String, String>> deletarAluno(@PathVariable("id") Long id) {
+        alunoService.deletarAluno(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(Map.of("message", "Aluno deletado"));
     }
 
 
