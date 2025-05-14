@@ -62,7 +62,6 @@ Abaixo estão os principais dados disponíveis para consumo.
 | id\_curso        | Inteiro | ID do curso ao qual está vinculado              |
 
 
-
 ### Relacionamento entre as Tabelas  
 
 * Cada aluno está vinculado a um curso através do campo id_curso.
