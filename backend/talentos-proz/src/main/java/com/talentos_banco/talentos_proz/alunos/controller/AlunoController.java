@@ -1,8 +1,8 @@
 package com.talentos_banco.talentos_proz.alunos.controller;
 
 import com.talentos_banco.talentos_proz.alunos.dto.AlunoDTO;
-import com.talentos_banco.talentos_proz.alunos.model.AlunoModel;
 import com.talentos_banco.talentos_proz.alunos.service.AlunoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,22 +31,41 @@ public class AlunoController {
     }
 
     @PostMapping("/aluno")
-    public ResponseEntity<Map<String, String>> adicionarAluno(@RequestBody AlunoDTO alunoDTO) {
-        AlunoModel alunoModel = alunoService.adicionarAluno(alunoDTO);
+    public ResponseEntity<Map<String, String>> adicionarAluno(@RequestBody @Valid AlunoDTO alunoDTO) {
+        alunoService.adicionarAluno(alunoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "Aluno adicionado!"));
     }
 
     @PutMapping("/aluno/{id}")
-    public ResponseEntity<Map<String, String>> atualizarAluno(@PathVariable("id") Long id, @RequestBody AlunoDTO alunoDTO) {
+    public ResponseEntity<Map<String, String>> atualizarAluno(@PathVariable("id") Long id, @RequestBody @Valid AlunoDTO alunoDTO) {
         alunoService.atualizarAluno(id, alunoDTO);
         return ResponseEntity.ok(Map.of("message", "Aluno atualizado"));
     }
 
     @DeleteMapping("/aluno/{id}")
-    public ResponseEntity<Map<String, String>> deletarAluno(@PathVariable("id") Long id) {
+    public void deletarAluno(@PathVariable("id") Long id) {
         alunoService.deletarAluno(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(Map.of("message", "Aluno deletado"));
     }
 
+    // FILTROS
 
+    @GetMapping("/aluno/filtro")
+    public ResponseEntity<AlunoDTO> buscarAluno(
+            @RequestParam(value = "nome", required = false) String nome,
+            @RequestParam(value = "formatura", required = false) String formatura,
+            @RequestParam(value = "email", required = false) String email) {
+
+        AlunoDTO alunoDTO = alunoService.buscaUnicoAluno(nome, formatura, email);
+        return ResponseEntity.ok(alunoDTO);
+    }
+
+    @GetMapping("/aluno/filters")
+    public ResponseEntity<List<AlunoDTO>> filters(
+            @RequestParam(value = "nome", required = false) String nome,
+            @RequestParam(value = "formatura", required = false) String formatura,
+            @RequestParam(value = "email", required = false) String email) {
+
+        List<AlunoDTO> alunoDTOS = alunoService.filterAluno(nome, formatura, email);
+        return ResponseEntity.ok(alunoDTOS);
+    }
 }

@@ -4,8 +4,6 @@ import com.talentos_banco.talentos_proz.cursos.model.CursoModel;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
-
 @Entity(name = "ALUNO")
 @Data
 public class AlunoModel {
@@ -41,5 +39,4 @@ public class AlunoModel {
     @ManyToOne
     @JoinColumn(name = "id_curso")
     private CursoModel curso;
-
 }

@@ -3,6 +3,7 @@ package com.talentos_banco.talentos_proz.cursos.controller;
 import java.util.List;
 import java.util.Map;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,20 +32,19 @@ public class CursoController {
     }
 
     @PostMapping("/curso")
-    public ResponseEntity<Map<String, String>> adicionarCurso(@RequestBody CursoDTO cursoDTO) {
+    public ResponseEntity<Map<String, String>> adicionarCurso(@RequestBody @Valid CursoDTO cursoDTO) {
         cursoService.adicionarCurso(cursoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "Curso adicionado!"));
     }
 
     @PutMapping("/curso/{id}")
-    public ResponseEntity<Map<String, String>> atualizarCurso(@PathVariable("id") Long id, @RequestBody CursoDTO cursoDTO) {
+    public ResponseEntity<Map<String, String>> atualizarCurso(@PathVariable("id") Long id, @RequestBody @Valid CursoDTO cursoDTO) {
         cursoService.atualizarCurso(id, cursoDTO);
         return ResponseEntity.ok(Map.of("message", "Curso atualizado"));
     }
 
     @DeleteMapping("/curso/{id}")
-    public String deletarCurso(@PathVariable("id") Long id) {
+    public void deletarCurso(@PathVariable("id") Long id) {
         cursoService.deletarAluno(id);
-        return "Curso apagado";
     }
 }
