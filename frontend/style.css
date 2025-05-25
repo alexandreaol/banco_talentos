@@ -14,11 +14,11 @@ body {
   color: white;
   padding: 20px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  width: 100vw;
 }
 
 .site-header .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 1.3vw;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
@@ -28,6 +28,8 @@ body {
 .site-header .logo {
   font-size: 24px;
   font-weight: bold;
+  height: 8vh;
+  max-height: 91px;
 }
 
 .site-header .nav ul {
@@ -41,7 +43,7 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
-  font-size: medium;
+  font-size: large;
 }
 
 .site-header .nav a:hover {
@@ -51,10 +53,11 @@ body {
 
 /* Carrossel */
 .carousel {
+
   position: relative;
   width: 100%;
   max-width: 1248px;   
-  height: 313px;         
+  height: auto;         
   margin: 40px auto;     
   overflow: hidden;
   border-radius: 12px;
@@ -69,9 +72,8 @@ body {
 
 .slides img {
   width: 100%;
-  height: 313px;
+  height: auto;
   object-fit: cover;
-  flex-shrink: 0;
   image-rendering: auto;
 }
 
@@ -113,31 +115,18 @@ body {
 
 /* Grade de cursos */
 .courses {
-  max-width: 1200px;
+  max-width: 1250px;
   margin: 40px auto;
   padding: 0 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
-  gap: 20px;
+  gap: 2.5vw;
 }
-
-@media (max-width: 900px) {
-  .courses {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .courses {
-    grid-template-columns: 1fr;
-  }
-}
-
 
 .card {
-  background-color: #d9d9d9;
+  background-color: #e8e7e7;
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.835);
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.639);
   padding: 20px;
   transition: transform 0.3s ease;
   display: flex;
@@ -148,7 +137,9 @@ body {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.405);
+  transform: scale(1.05);
+  transition: 0.7s;
+  box-shadow: 0 0px 18px rgba(0, 0, 0, 0.312);
 }
 
 .card img {
@@ -185,7 +176,7 @@ body {
 }
 
 .card-btn:hover {
-  filter: brightness(1.4);
+  filter: brightness(1.5);
   color: #fcfafa;
   
 }
@@ -221,4 +212,42 @@ footer nav a:hover {
   padding-top: 10px;
   color: #fff;
   font-size: small;
+}
+@media (max-width: 1300px) {
+  .carousel {
+    scale: 0.9;
+    margin: 20px 2vw;
+  }
+  .courses {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 2.5vw;
+  }
+}
+@media (max-width: 768px) {
+  .nav-btn {
+    scale: 0.9; 
+  }
+  .courses {
+    max-width: 400px;
+    
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 2.5vw;
+  }
+  .info {
+  background-color: #f66301;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  max-width: 600px;       
+  margin: 40px auto;      
+  text-align: center;     
+  font-size: 1.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.301); 
+}
 }
