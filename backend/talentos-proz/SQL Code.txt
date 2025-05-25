@@ -1,0 +1,19 @@
+CREATE TABLE public.curso(
+    id_curso bigserial PRIMARY KEY,
+    nome character varying(255),
+    codigo character varying(255)
+)
+
+CREATE TABLE public.aluno(
+    id_aluno bigserial PRIMARY KEY,
+    nome character varying(255),
+    sobrenome character varying(255),
+    idade integer,
+    descricao character varying(255),
+    telefone character varying(11),
+    email character varying(255),
+    github_link character varying(255),
+    data_formatura date,
+    link_image character varying(255),
+    id_curso bigint REFERENCES public.curso(id_curso)
+)
