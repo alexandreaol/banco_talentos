@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +7,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Sora', sans-serif;
   background-color: #f9f9f9;
 }
 
@@ -106,7 +108,7 @@ body {
   color: white;
   padding: 20px 30px;
   border-radius: 12px;
-  max-width: 1160px;       
+  max-width: 1225px;       
   margin: 40px auto;      
   text-align: center;     
   font-size: 1.2rem;
@@ -160,7 +162,7 @@ body {
   color: #424040;
   flex-grow: 1;
   margin-bottom: 16px;
-  font-size: small;
+  font-size: 0.8em;
 }
 
 .card-btn {
@@ -172,7 +174,7 @@ body {
   text-align: center;
   border-radius: 8px;
   transition: background-color 0.3s ease;
-  width: 100px;
+  width: fit-content;
 }
 
 .card-btn:hover {
