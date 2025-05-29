@@ -2,120 +2,86 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TalentosProz</title>
+  <title>Talentos Proz</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Condensed:wght@700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body class="body">
- <!-- Cabeçalho -->
-<header class="site-header">
-    <div class="container">
-      <img src="Imagens/spen.png" alt="" class="logo">
-      <nav class="nav">
-        <ul>
-          <li><a href="#courses">Cursos</a></li>
-          <li><a href="#site-footer">Sobre</a></li>
-        </ul>
-      </nav>
+<body>
+
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="logo.png" alt="Descrição da imagem" width="220" height="150 ">
+      </div>
+      <div class="header-buttons">
+        <button>Cursos</button>
+        <button>Sobre</button>
+      </div>
     </div>
   </header>
-  
-  <!-- Carrossel -->
-  <div class="carousel">
-    <button class="nav-btn prev" onclick="prevSlide()">❮</button>
-    <div class="slides" id="slides">
-      <img src="Imagens/Flayers/Flayer1.jpg" alt="Curso 1">
-      <img src="Imagens/Flayers/Flayer2.jpg" alt="Curso 2">
-      <img src="Imagens/Flayers/Flayer3.jpg" alt="Curso 3">
-    </div>
-    <button class="nav-btn next" onclick="nextSlide()">❯</button>
-  </div>
 
-  <div class="info">
-    <p>Segue abaixo os cursos com portfólios disponíveis, clique em "Ver mais" para conferir mais informações sobre.</p>
-  </div>
-  <!-- Cards de cursos -->
-  <section class="courses" id="courses">
-  
-    <div class="card">
-      <img src="Imagens/BannersCards/Banner_Ds.jpg" alt="">
-      <h3>Curso Desenvolvimento de Sistemas</h3>
-      <p>Curso focado em programação, sistemas e tecnologia. Prepara para criar e manter softwares.</p>
-      <a href="#" class="card-btn">Ver mais</a>
-    </div>
-    
-    <div class="card">
-      <img src="Imagens/BannersCards/Banner_Enfermagem.jpg" alt="">
-      <h3>Curso Técnico em Enfermagem</h3>
-      <p>Curso voltado aos cuidados com a saúde. Forma profissionais para atuar em hospitais e clínicas, auxiliando enfermeiros.</p>
-      <a href="#" class="card-btn">Ver mais</a>
-    </div>
-    
-    <div class="card">
-      <img src="Imagens/BannersCards/Banner_Estetica.jpg" alt="">
-      <h3>Curso Técnico em Estética</h3>
-      <p>Curso técnico na área da beleza e bem-estar. Ensina técnicas de cuidados com a pele, massagens e tratamentos estéticos.</p>
-      <a href="#" class="card-btn">Ver mais</a>
-    </div>
-    
-    <div class="card">
-      <img src="Imagens/BannersCards/Banner_Radiologia.jpg" alt="">
-      <h3>Curso Técnico em Radiologia</h3>
-      <p>Curso técnico voltado à área da saúde. Forma profissionais para operar equipamentos de diagnóstico por imagem, como raio-X e tomografia.</p>
-      <a href="#" class="card-btn">Ver mais</a>
-    </div>
-    
-    <div class="card">
-      <img src="Imagens/BannersCards/Banner_RH.jpg" alt="">
-      <h3>Curso Técnico de Recursos Humanos</h3>
-      <p>Curso técnico focado na gestão de pessoas. Forma profissionais para atuar com recrutamento, treinamento e administração de pessoal.</p>
-      <a href="#" class="card-btn">Ver mais</a>
-    </div>
-    
-    <div class="card">
-      <img src="Imagens/BannersCards/Banner_SegurançaDoTrabalho.jpg" alt="">   
-      <h3>Curso Técnico em Segurança do Trabalho</h3>
-      <p> Curso técnico voltado à prevenção de acidentes. Prepara profissionais para garantir a segurança e saúde no ambiente de trabalho.</p>
-      <a href="#" class="card-btn">Ver mais</a>
-    </div>
+  <main>
+    <div class="form-box">
+      <div class="form-title">FORMULÁRIO DE CADASTRO DE NOVO ALUNO</div>
 
-  </section>
+      <form>
+        <div class="form-row">
+          <label for="curso">Curso</label>
+          <select id="curso" name="curso">
+            <option value="rh">Recursos Humanos</option>
+            <option value="enfermagem">Enfermagem</option>
+            <option value="desenvolvimento">Desenvolvimento de Sistemas</option>
+            <option value="seguranca">Técnico em Segurança do Trabalho</option>
+            <option value="radiologia">Radiologia</option>
+            <option value="estetica">Estética</option>
+          </select>
+        </div>
 
-  <!-- Rodapé -->
-<footer class="site-footer" id="site-footer">
-  <div class="container">
-    <nav>
-      <a href="#sobre">SOBRE O PROJETO</a>
-      <a href="">|</a>
-      <a href="#contato">FALE CONOSCO</a>
-    </nav>
-  </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 CursosOnline. Todos os direitos reservados.</p>
+        <div class="form-row tripla">
+          <div>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome">
+         
+            <label for="idade">Idade</label>
+            <input type="number" id="idade" name="idade" placeholder="Idade">
+          </div>
+
+        </div>
+
+        <div class="form-row">
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" name="descricao" rows="3" placeholder="Ex: Sou professor Front-End, soluções criativas para problemas."></textarea>
+        </div>
+
+        <div class="form-row dupla">
+          <div>
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="Ex: 3812345678">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Ex: alunoproz@gmail.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="formatura">Formatura</label>
+          <input type="text" id="formatura" name="formatura" placeholder="Ex: 12/12/26">
+        </div>
+
+        <button type="submit" class="btn-cadastrar">Enviar</button>
+      </form>
     </div>
-</footer>
-  
-  <script>
-    let currentIndex = 0;
-    const slides = document.getElementById('slides');
-    const totalSlides = slides.children.length;
+  </main>
 
-    function updateSlide() {
-      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlide();
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateSlide();
-    }
-
-    setInterval(nextSlide, 5000);
-  </script>
+  <footer>
+    <div class="footer-buttons">
+      <button>SOBRE O PROJETO</button>
+      <button>FALE CONOSCO</button>
+    </div>
+  </footer>
 
 </body>
 </html>
