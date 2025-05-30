@@ -15,7 +15,7 @@ CREATE TABLE public.aluno(
     telefone character varying(11),
     email character varying(255),
     github_link character varying(255),
-    data_formatura date,
+    data_formatura varchar(10),
     link_image character varying(255),
     id_curso bigint REFERENCES public.curso(id_curso)
 )
