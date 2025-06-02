@@ -47,7 +47,7 @@ public class ExceptionErrorHandler {
         error.setTimestamp(LocalDateTime.now());
         error.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
         error.setError("Erro interno do servidor");
-        error.setMessage("O servidor não consegui realizar a operação");
+        error.setMessage("O servidor não conseguiu realizar a operação");
         error.setPath(request.getRequestURI());
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);

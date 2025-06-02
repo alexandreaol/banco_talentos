@@ -44,7 +44,8 @@ public class CursoController {
     }
 
     @DeleteMapping("/curso/{id}")
-    public void deletarCurso(@PathVariable("id") Long id) {
+    public ResponseEntity<HttpStatus> deletarCurso(@PathVariable("id") Long id) {
         cursoService.deletarAluno(id);
+        return ResponseEntity.noContent().build();
     }
 }

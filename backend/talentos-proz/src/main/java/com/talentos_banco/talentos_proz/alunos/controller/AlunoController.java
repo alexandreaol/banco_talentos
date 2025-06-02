@@ -43,29 +43,27 @@ public class AlunoController {
     }
 
     @DeleteMapping("/aluno/{id}")
-    public void deletarAluno(@PathVariable("id") Long id) {
+    public ResponseEntity<HttpStatus> deletarAluno(@PathVariable("id") Long id) {
         alunoService.deletarAluno(id);
+        return ResponseEntity.noContent().build();
     }
 
     // FILTROS
 
-    @GetMapping("/aluno/filtro")
+    @GetMapping("/aluno/filter")
     public ResponseEntity<AlunoDTO> buscarAluno(
-            @RequestParam(value = "nome", required = false) String nome,
-            @RequestParam(value = "formatura", required = false) String formatura,
-            @RequestParam(value = "email", required = false) String email) {
+            @RequestParam(value = "nome", required = false) String nome){
 
-        AlunoDTO alunoDTO = alunoService.buscaUnicoAluno(nome, formatura, email);
+        AlunoDTO alunoDTO = alunoService.buscaUnicoAluno(nome);
         return ResponseEntity.ok(alunoDTO);
     }
 
     @GetMapping("/aluno/filters")
     public ResponseEntity<List<AlunoDTO>> filters(
             @RequestParam(value = "nome", required = false) String nome,
-            @RequestParam(value = "formatura", required = false) String formatura,
-            @RequestParam(value = "email", required = false) String email) {
+            @RequestParam(value = "formatura", required = false) String formatura) {
 
-        List<AlunoDTO> alunoDTOS = alunoService.filterAluno(nome, formatura, email);
+        List<AlunoDTO> alunoDTOS = alunoService.filterAluno(nome, formatura);
         return ResponseEntity.ok(alunoDTOS);
     }
 }

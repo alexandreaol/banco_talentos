@@ -7,6 +7,7 @@ import com.talentos_banco.talentos_proz.alunos.repository.AlunoRepository;
 import com.talentos_banco.talentos_proz.cursos.model.CursoModel;
 import com.talentos_banco.talentos_proz.cursos.repository.CursoRepository;
 import com.talentos_banco.talentos_proz.errors.NaoEncontrado;
+import com.talentos_banco.talentos_proz.util.Verificacao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,68 +18,55 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class AlunoService {
 
-    private final AlunoMapper alunoMapper;
     private final AlunoRepository alunoRepository;
     private final CursoRepository cursoRepository;
 
-
-    private AlunoModel verificaAluno(Long id) {
-        return alunoRepository.findById(id)
-                .orElseThrow(() -> new NaoEncontrado("Aluno não encontrado"));
-    }
-
-    private CursoModel verificaCurso(Long id) {
-        return cursoRepository.findById(id)
-                .orElseThrow(() -> new NaoEncontrado("Curso não encontrado"));
-    }
-
     public List<AlunoDTO> verAlunos() {
         List<AlunoModel> alunoModel = alunoRepository.findAll();
-        return alunoModel.stream().map(alunoMapper::toDTO).collect(Collectors.toList());
+        return alunoModel.stream().map(AlunoMapper::toDTO).collect(Collectors.toList());
     }
 
     public void adicionarAluno(AlunoDTO alunoDTO) {
-        AlunoModel alunoModel = alunoMapper.toEntity(alunoDTO);
+        AlunoModel alunoModel = AlunoMapper.toEntity(alunoDTO);
+        CursoModel cursoModel = Verificacao.verificaID(cursoRepository, alunoDTO.getCursoId(), 1);
+        alunoModel.setCurso(cursoModel);
         alunoRepository.save(alunoModel);
     }
 
     public AlunoDTO verAlunoId(Long id) {
-        AlunoModel alunoModel = verificaAluno(id);
-        return  alunoMapper.toDTO(alunoModel);
+        AlunoModel alunoModel = Verificacao.verificaID(alunoRepository, id, 0);
+        return  AlunoMapper.toDTO(alunoModel);
     }
 
     public void atualizarAluno(Long id, AlunoDTO alunoDTO) {
-        AlunoModel alunoModel = verificaAluno(id);
+        AlunoModel alunoModel = Verificacao.verificaID(alunoRepository, id, 0);
 
-        CursoModel cursoModel = verificaCurso(alunoDTO.getCursoId());
+        CursoModel cursoModel = Verificacao.verificaID(cursoRepository, id, 1);
         alunoModel.setCurso(cursoModel);
 
-        alunoMapper.updateEntity(alunoModel, alunoDTO);
+        AlunoMapper.updateEntity(alunoModel, alunoDTO);
         alunoRepository.save(alunoModel);
     }
 
     public void deletarAluno(Long id) {
-        AlunoModel alunoModel = verificaAluno(id);
+        AlunoModel alunoModel = Verificacao.verificaID(alunoRepository, id, 0);
         alunoRepository.delete(alunoModel);
     }
 
     // FILTROS
 
-    public AlunoDTO buscaUnicoAluno(String nome, String dataFormatura, String email) {
-        return alunoRepository.findAll().stream()
-                .filter(a -> nome == null || a.getNome().equalsIgnoreCase(nome))
-                .filter(a -> dataFormatura == null || a.getDataFormatura().equalsIgnoreCase(dataFormatura))
-                .filter(a -> email == null || a.getEmail().equalsIgnoreCase(email)).findFirst()
-                .map(alunoMapper::toDTO).orElse(null);
+    public AlunoDTO buscaUnicoAluno(String nome) {
+        AlunoModel alunoModel = alunoRepository.findBynome(nome)
+                .orElseThrow(() -> new NaoEncontrado(Verificacao.message[0]));
+        return AlunoMapper.toDTO(alunoModel);
     }
 
-    public List<AlunoDTO> filterAluno(String nome, String dataFormatura, String email) {
+    public List<AlunoDTO> filterAluno(String nome, String dataFormatura) {
         List<AlunoModel> alunoModels = alunoRepository.findAll();
 
         return alunoModels.stream()
                 .filter(a -> nome == null || a.getNome().equalsIgnoreCase(nome))
-                .filter(a -> dataFormatura == null || a.getDataFormatura().equals(dataFormatura))
-                .filter(a -> email == null || a.getEmail().equalsIgnoreCase(email))
-                .map(alunoMapper::toDTO).collect(Collectors.toList());
+                .filter(a -> dataFormatura == null || a.getDataFormatura().contains(dataFormatura))
+                .map(AlunoMapper::toDTO).collect(Collectors.toList());
     }
 }

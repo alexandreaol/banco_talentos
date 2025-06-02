@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 public class CursoDTO {
-    private Long id_curso;
+    private Long idCurso;
 
     @NotBlank(message = "Nome não pode esta em branco.")
     @Size(min = 2, max = 20, message = "O nome tem que ser entre 2 a 20 caracteres.")

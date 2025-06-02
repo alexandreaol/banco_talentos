@@ -12,9 +12,9 @@ Abaixo estão os principais dados disponíveis para consumo.
 
 ### Tabela Curso
 
-~~~
+~~~ json
 {
-  "id_curso": 1,
+  "idCurso": 1,
   "nome": "Desenvolvimento Web",
   "codigo": "DW2025"
 }
@@ -30,35 +30,44 @@ Abaixo estão os principais dados disponíveis para consumo.
 
 ### Tabela Aluno
 
-~~~
+~~~ json
 {
-  "id_aluno": 101,
-  "nome": "Lucas",
-  "sobrenome": "Silva",
+  "idAluno: 101,
+  "nome": "Lucas Silva",
   "idade": 22,
   "descricao": "Desenvolvedor focado em back-end e APIs REST.",
-  "telefone": 11987654321,
+  "telefone": "11987654321",
   "email": "lucas.silva@email.com",
   "github_link": "https://github.com/lucas-silva",
-  "data_formatura": "12/2025",
-  "id_curso": 1,
+  "habilidade1": "Back-end",
+  "habilidade2": "Java",
+  "habilidade3": "Banco de dados",
+  "imagem": "imagem/link.com",
+  "dataFormatura": "12/2025",
+  "cursoId": 1,
+  "cursoNome": "Desenvolvimento de sistemas"
 }
 ~~~
 
 #### Campos: 
 
-| Campo            | Tipo    | Descrição                                       |
-| ---------------- | ------- | ----------------------------------------------- |
-| id\_aluno        | Inteiro | ID único do aluno                               |
-| nome             | Texto   | Primeiro nome do aluno                          |
-| sobrenome        | Texto   | Sobrenome do aluno                              |
-| idade            | Inteiro | Idade                                           |
-| descricao        | Texto   | Breve resumo ou biografia do aluno              |
-| telefone         | Inteiro | Número de telefone (somente dígitos)            |
-| email            | Texto   | E-mail para contato                             |
-| github\_link     | Texto   | Link para o GitHub do aluno                     |
-| data\_formatura  | Texto   | Data prevista para formatura (ex: "12/2025")    |
-| id\_curso        | Inteiro | ID do curso ao qual está vinculado              |
+| Campo           | Tipo    | Descrição                                    |
+|-----------------|---------|----------------------------------------------|
+| id\_aluno       | Inteiro | ID único do aluno                            |
+| nome            | Texto   | Primeiro nome do aluno                       |
+| sobrenome       | Texto   | Sobrenome do aluno                           |
+| idade           | Inteiro | Idade                                        |
+| descricao       | Texto   | Breve resumo ou biografia do aluno           |
+| telefone        | Inteiro | Número de telefone (somente dígitos)         |
+| email           | Texto   | E-mail para contato                          |
+| github\_link    | Texto   | Link para o GitHub do aluno                  |
+| habilidade\_1   | Texto   | Habilidade que o aluno possui                |
+| habilidade\_2   | Texto   | Habilidade que o aluno possui                |
+| habilidade\_3   | Texto   | Habilidade que o aluno possui                |
+| imagem\_link    | Texto   | Link para o imagem do aluno                  |
+| data\_formatura | Texto   | Data prevista para formatura (ex: "12/2025") |
+| id\_curso       | Inteiro | ID do curso ao qual está vinculado           |
+| nome\_curso     | Texto   | Nome do curso                                |
 
 
 ### Relacionamento entre as Tabelas  
@@ -83,8 +92,8 @@ Esta é a documentação da API do projeto **Banco de Talentos**, que permite ge
     - POST /aluno
     - PUT /aluno/{id}
     - DELETE /aluno/{id}
-    - GET /aluno/filtro
-    - GET /aluno/filters
+    - GET /aluno/filter?nome="Nome do usuario"
+    - GET /aluno/filters?nome ou data de formatura
 - [Cursos](#-cursos)
     - GET /curso
     - GET /curso/{id}
@@ -108,17 +117,24 @@ Retorna todos os alunos cadastrados.
 ```json
 [
   {
-    "id": 2,
-    "nome": "Joao",
-    "sobrenome": "Geraldo",
+    "id": 3,
+    "nome": "Joao Geraldo",
     "idade": 25,
-    "descricao": "Teste",
-    "telefone": 1234565545,
+    "descricao": "sou desenvolvedor de sistemas",
+    "telefone": "1234565545",
     "email": "joao@gmail",
-    "github": "https://batman.com",
-    "dataFormatura": "30/03/2026",
-    "cursoId": 1
+    "github": "https://dev.com",
+    "habilidade1": "Back-end",
+    "habilidade2": "Java",
+    "habilidade3": "Banco de dados",
+    "imagem": "imagem/link.com",
+    "dataFormatura": "30/05/2026",
+    "cursoId": 1,
+    "cursoNome": "Desenvolvimento de seistema"
   },
+  {
+    Outros alunos...
+  }
 ]
 ```
 
@@ -131,16 +147,20 @@ Retorna os dados de um único aluno pelo ID.
 **Exemplo:**
 ```json
 {
-  "id": 2,
-  "nome": "Joao",
-  "sobrenome": "Geraldo",
+  "id": 3,
+  "nome": "Joao Geraldo",
   "idade": 25,
-  "descricao": "Teste",
-  "telefone": 1234565545,
+  "descricao": "sou desenvolvedor de sistemas",
+  "telefone": "1234565545",
   "email": "joao@gmail",
-  "github": "https://batman.com",
-  "dataFormatura": "30/03/2026",
-  "cursoId": 1
+  "github": "https://dev.com",
+  "habilidade1": "Back-end",
+  "habilidade2": "Java",
+  "habilidade3": "Banco de dados",
+  "imagem": "imagem/link.com",
+  "dataFormatura": "30/05/2026",
+  "cursoId": 1,
+  "cursoNome": "Desenvolvimento de seistema"
 }
 ```
 
@@ -153,14 +173,17 @@ Cria um novo aluno.
 **Corpo da requisição (exemplo):**
 ```json
 {
-  "nome": "Maria",
-  "sobrenome": "Fernandes",
-  "idade": 21,
-  "descricao": "Estudante de design gráfico",
-  "telefone": 11999998888,
-  "email": "maria@email.com",
-  "github": "https://github.com/maria",
-  "dataFormatura": "12/2025",
+  "nome": "Joao Geraldo",
+  "idade": 25,
+  "descricao": "sou desenvolvedor de sistemas",
+  "telefone": "1234565545",
+  "email": "joao@gmail",
+  "github": "https://dev.com",
+  "dataFormatura": "30/05/2026",
+  "habilidade1": "Back-end",
+  "habilidade2": "Java",
+  "habilidade3": "Banco de dados",
+  "imagem": "imagem/link.com",
   "cursoId": 1
 }
 ```
@@ -181,18 +204,18 @@ Remove um aluno do sistema, com base no ID.
 
 ---
 
-### GET `/aluno/filtro`
+### GET `/aluno/filter`
 
-Retorna **apenas um aluno** que combine com os filtros informados.
+Retorna **apenas um aluno** por nome.
 
-**Parâmetros opcionais:**
+**Parâmetro:**
 - `nome`
-- `formatura` (mesmo valor de `dataFormatura`, como `"12/2025"`)
-- `email`
+
+
 
 **Exemplo:**
 ```
-GET /api/aluno/filtro?nome=Joao&formatura=30/03/2026
+GET /api/aluno/filter?nome=Joao
 ```
 
 ---
@@ -204,13 +227,14 @@ Retorna uma **lista de alunos** que combinem com os filtros.
 **Parâmetros opcionais:**
 - `nome`
 - `formatura`
-- `email`
 
 **Exemplo:**
 ```
 GET /api/aluno/filters?formatura=12/2025
 ```
-
+```
+GET /api/aluno/filters?nome="Joao"&formatura=12/2025
+```
 ---
 
 ## Cursos
@@ -229,14 +253,18 @@ Retorna todos os cursos cadastrados.
     "alunos": [
       {
         "id": 3,
-        "nome": "Joao",
-        "sobrenome": "Geraldo",
+        "nome": "Joao Geraldo",
         "idade": 25,
-        "descricao": "Teste",
-        "telefone": 1234565545,
+        "descricao": "sou desenvolvedor de sistemas",
+        "telefone": "1234565545",
         "email": "joao@gmail",
-        "github": "https://batman.com",
-        "dataFormatura": "30/03/2026",
+        "github": "https://dev.com",
+        "habilidade1": "Back-end",
+        "habilidade2": "Java",
+        "habilidade3": "Banco de dados",
+        "imagem": "imagem/link.com",
+        "dataFormatura": "30/05/2026",
+        "cursoNome": "Desenvolvimento Web",
         "cursoId": 1
       }
     ]
@@ -248,15 +276,19 @@ Retorna todos os cursos cadastrados.
     "alunos": [
       {
         "id": 3,
-        "nome": "Maria",
-        "sobrenome": "Santos",
+        "nome": "Joao Geraldo",
         "idade": 25,
-        "descricao": "Teste",
-        "telefone": 1234565545,
-        "email": "Maria@gmail",
-        "github": "https://batman.com",
-        "dataFormatura": "30/03/2026",
-        "cursoId": 2
+        "descricao": "sou desenvolvedor de sistemas",
+        "telefone": "1234565545",
+        "email": "joao@gmail",
+        "github": "https://dev.com",
+        "habilidade1": "Back-end",
+        "habilidade2": "Java",
+        "habilidade3": "Banco de dados",
+        "imagem": "imagem/link.com",
+        "dataFormatura": "30/05/2026",
+        "cursoNome": "Design Gráfico",
+        "cursoId": 1
       }
     ]
   }
@@ -277,14 +309,18 @@ Retorna os dados de um curso específico pelo ID.
   "alunos": [
     {
       "id": 3,
-      "nome": "Maria",
-      "sobrenome": "Santos",
+      "nome": "Joao Geraldo",
       "idade": 25,
-      "descricao": "Teste",
-      "telefone": 1234565545,
-      "email": "Maria@gmail",
-      "github": "https://batman.com",
-      "dataFormatura": "30/03/2026",
+      "descricao": "sou desenvolvedor de sistemas",
+      "telefone": "1234565545",
+      "email": "joao@gmail",
+      "github": "https://dev.com",
+      "habilidade1": "Back-end",
+      "habilidade2": "Java",
+      "habilidade3": "Banco de dados",
+      "imagem": "imagem/link.com",
+      "dataFormatura": "30/05/2026",
+      "cursoNome": "Design Gráfico",
       "cursoId": 1
     }
   ]
