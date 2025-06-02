@@ -32,7 +32,7 @@ Abaixo estão os principais dados disponíveis para consumo.
 
 ~~~ json
 {
-  "id_aluno: 101,
+  "id_aluno": 101,
   "nome": "Lucas Silva",
   "idade": 22,
   "descricao": "Desenvolvedor focado em back-end e APIs REST.",
