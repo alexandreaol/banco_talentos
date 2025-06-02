@@ -32,7 +32,7 @@ Abaixo estão os principais dados disponíveis para consumo.
 
 ~~~ json
 {
-  "idAluno: 101,
+  "id_aluno: 101,
   "nome": "Lucas Silva",
   "idade": 22,
   "descricao": "Desenvolvedor focado em back-end e APIs REST.",
@@ -132,9 +132,7 @@ Retorna todos os alunos cadastrados.
     "cursoId": 1,
     "cursoNome": "Desenvolvimento de seistema"
   },
-  {
-    Outros alunos...
-  }
+  "Outros alunos..."
 ]
 ```
 
