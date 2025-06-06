@@ -52,10 +52,8 @@ body {
   text-decoration: underline;
 }
 
-
 /* Carrossel */
 .carousel {
-
   position: relative;
   width: 100%;
   max-width: 1248px;   
@@ -78,8 +76,6 @@ body {
   object-fit: cover;
   image-rendering: auto;
 }
-
-
 
 /* Botões de navegação */
 .nav-btn {
@@ -125,7 +121,8 @@ body {
   gap: 2.5vw;
 }
 
-.card {
+
+.cartao-inner {
   background-color: #e8e7e7;
   border-radius: 15px;
   box-shadow: 0 0px 8px rgba(0, 0, 0, 0.639);
@@ -137,11 +134,16 @@ body {
   overflow: hidden;
 }
 
-.card:hover {
+.cartao-inner:hover {
   transform: translateY(-5px);
   transform: scale(1.05);
   transition: 0.7s;
-  box-shadow: 0 0px 18px rgba(0, 0, 0, 0.312);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.cartao-inner:active{
+  transform: scale(0.9);
 }
 
 .card img {
@@ -177,10 +179,9 @@ body {
   width: fit-content;
 }
 
-.card-btn:hover {
-  filter: brightness(1.5);
-  color: #fcfafa;
-  
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
@@ -206,7 +207,6 @@ footer nav a:hover {
   text-decoration: underline; 
 }
 
-
 .footer-bottom {
   text-align: center;
   margin-top: 20px;
@@ -215,7 +215,8 @@ footer nav a:hover {
   color: #fff;
   font-size: small;
 }
-@media (max-width: 1300px) {
+
+@media (max-width: 768px) {
   .carousel {
     scale: 0.9;
     margin: 20px 2vw;
@@ -229,13 +230,13 @@ footer nav a:hover {
   gap: 2.5vw;
   }
 }
-@media (max-width: 768px) {
+
+@media (max-width: 500px) {
   .nav-btn {
     scale: 0.9; 
   }
   .courses {
     max-width: 400px;
-    
     padding: 0 20px;
     display: grid;
     grid-template-columns: repeat(1, 1fr); 
@@ -252,4 +253,15 @@ footer nav a:hover {
   font-size: 1.2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.301); 
 }
+}
+
+[data-aos] {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
