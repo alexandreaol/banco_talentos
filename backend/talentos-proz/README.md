@@ -370,7 +370,7 @@ Remove um curso do sistema com base no ID.
 ## Observações Finais
 
 - A data de formatura deve seguir o formato `"DD/MM/YYYY"`.
-- Os campos `idade` e `telefone` devem ser enviados como número (sem aspas).
+- O campo `idade` deve ser enviado como numero e o campo `telefone` deve ser enviado como string.
 - Os filtros de aluno funcionam com **qualquer um dos parâmetros**, e ignoram maiúsculas/minúsculas.
 - Nenhuma autenticação é necessária por enquanto.
 
