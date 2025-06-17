@@ -15,9 +15,6 @@ public class AlunoModel {
     @Column(name = "nome_completo")
     private String nome;
 
-    @Column(name = "sobrenome")
-    private String sobrenome;
-
     @Column(name = "idade")
     private int idade;
 
