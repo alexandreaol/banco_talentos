@@ -1,94 +1,106 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Cadastro de Portifólios</title>
+  <title>Cadastro de Portfólio</title>
   <link rel="stylesheet" href="frontend/estilos/style-formularioDeCadastro.css">
   <link rel="shortcut icon" href="frontend/Imagens/favicon.png" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Condensed:wght@700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <header class="site-header">
-    <div class="container">
-      <img src="frontend/Imagens/spen.png" alt="" class="logo">
-      <nav class="nav">
-        <ul>
-          <li><a href="#courses">Cursos</a></li>
-          <li><a href="#site-footer">Sobre</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <div class="form-box">
-      <div class="form-title">FORMULÁRIO DE CADASTRO DE NOVO ALUNO</div>
-
-      <form>
-        <div class="form-row">
-          <label for="curso">Curso</label>
-          <select id="curso" name="curso">
-            <option value="rh">Recursos Humanos</option>
-            <option value="enfermagem">Enfermagem</option>
-            <option value="desenvolvimento">Desenvolvimento de Sistemas</option>
-            <option value="seguranca">Técnico em Segurança do Trabalho</option>
-            <option value="radiologia">Radiologia</option>
-            <option value="estetica">Estética</option>
-          </select>
-        </div>
-
-        <div class="form-row tripla">
-          <div>
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
-
-            <label for="sobrenome">Sobrenome</label>
-            <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome">
-         
-            <label for="idade">Idade</label>
-            <input type="number" id="idade" name="idade" placeholder="Idade">
-          </div>
-
-        </div>
-
-        <div class="form-row">
-          <label for="descricao">Descrição</label>
-          <textarea id="descricao" name="descricao" rows="3" placeholder="Ex: Sou professor Front-End, soluções criativas para problemas."></textarea>
-        </div>
-
-        <div class="form-row dupla">
-          <div>
-            <label for="telefone">Telefone</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="Ex: 3812345678">
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Ex: alunoproz@gmail.com">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <label for="formatura">Formatura</label>
-          <input type="text" id="formatura" name="formatura" placeholder="Ex: 12/12/26">
-        </div>
-
-        <button type="submit" class="btn-cadastrar">Enviar</button>
-      </form>
-    </div>
-  </main>
-
-  <footer class="site-footer" id="site-footer">
-    <div class="container">
-      <nav>
-        <a href="#sobre">SOBRE O PROJETO</a>
-        <a href="">|</a>
-        <a href="#contato">FALE CONOSCO</a>
-      </nav>
-    </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 CursosOnline. Todos os direitos reservados.</p>
+<header class="site-header">
+  <div class="container">
+    <img src="frontend/Imagens/spen.png" alt="" class="logo">
+    <nav class="nav">
+      <ul>
+        <li><a href="#courses">Cursos</a></li>
+        <li><a href="#site-footer">Sobre</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="form-box">
+    <div class="form-title">FORMULÁRIO DE CADASTRO DE NOVO ALUNO</div>
+    <form id="formCadastro">
+      <div class="form-row">
+        <label for="curso">Curso</label>
+        <select id="curso" name="curso" required>
+          <option value="1">Desenvolvimento de Sistemas</option>
+          <option value="2">Enfermagem</option>
+          <option value="3">Estética</option>
+          <option value="4">Radiologia</option>
+          <option value="5">Recursos Humanos</option>
+          <option value="6">Segurança do Trabalho</option>
+        </select>
       </div>
-  </footer>
-
+      <div class="form-row dupla">
+        <div>
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+        <div>
+          <label for="idade">Idade</label>
+          <input type="number" id="idade" name="idade" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao" rows="3" required></textarea>
+      </div>
+      <div class="form-row dupla">
+        <div>
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="11912345678" required>
+        </div>
+        <div>
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="github">Link do GitHub</label>
+        <input type="url" id="github" name="github">
+      </div>
+      <div class="form-row tripla">
+        <div>
+          <label for="habilidade1">Habilidade 1</label>
+          <input type="text" id="habilidade1" name="habilidade1">
+        </div>
+        <div>
+          <label for="habilidade2">Habilidade 2</label>
+          <input type="text" id="habilidade2" name="habilidade2">
+        </div>
+        <div>
+          <label for="habilidade3">Habilidade 3</label>
+          <input type="text" id="habilidade3" name="habilidade3">
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="imagem">URL da Imagem</label>
+        <input type="url" id="imagem" name="imagem">
+      </div>
+      <div class="form-row">
+        <label for="formatura">Data de Formatura</label>
+        <input type="date" id="formatura" name="formatura" required>
+      </div>
+      <button type="submit" class="btn-cadastrar">Enviar</button>
+    </form>
+  </div>
+</main>
+<footer class="site-footer" id="site-footer">
+  <div class="container">
+    <nav>
+      <a href="#sobre">SOBRE O PROJETO</a>
+      <a href="">|</a>
+      <a href="#contato">FALE CONOSCO</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 CursosOnline. Todos os direitos reservados.</p>
+  </div>
+</footer>
 </body>
+<script type="module" src="frontend/scripts/script.js"></script>
 </html>
