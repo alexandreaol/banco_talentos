@@ -36,6 +36,9 @@ body {
   height: 8vh;
   max-height: 91px;
 }
+.logo:hover {
+  cursor: pointer;
+}
 
 .site-header .nav ul {
   list-style: none;

@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Enfermagem</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="../../Imagens/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -13,20 +13,21 @@
 </head>
 <body>
 
-<header class="site-header">
-    <div class="container">
-      <a href="/banco_talentos/">
-        <img src="imgLogo/spen.png" alt="Logo Talentos Proz" class="logo" />
-      </a>
-      <div class="header-text">Tec. Enfermagem</div>
-      <nav class="nav">
-        <ul>
-          <li><a href="#grid-portfolios">Cursos</a></li>
-          <li><a href="#site-footer">Sobre</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+ <header class="site-header">
+  <div class="container">
+    <a href="../../../index.html" class="tooltip-container">
+      <img src="imgLogo/spen.png" alt="Logo Talentos Proz" class="logo tooltip-img"/>
+      <span class="tooltip-text">Voltar para a página inicial</span>
+    </a>
+    <div class="header-text">Tec. Enfermagem</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="../../../index.html#courses">Cursos</a></li>
+        <li><a href="#site-footer">Sobre</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 <section class="busca">
   <div class="busca-container">
@@ -57,7 +58,7 @@
   <div class="modal-content">
     <button onclick="fecharModal()" class="btn-fechar">&times;</button>
 
-    <h2>Nome do Aluno</h2>
+    <h2 class="nome">Nome do Aluno</h2>
     <p class="curso">Curso: Análise e Desenvolvimento de Sistemas</p>
 
     <p class="descricao">
@@ -77,161 +78,18 @@
 
   <main class="grid-portfolios" id="grid-portfolios">
     
-    <div class="cartao"  data-aos="fade-up" data-aos-delay="100">
+    <div class="cartao cartaomodelo">
         <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100" alt="Foto de José Augusto" />
-          <h3>José Augusto</h3>
+          <img src="https://i.pravatar.cc/100" alt="Foto de José Augusto" class="foto"/>
+          <h3 class="nome">José Augusto</h3>
           <div class="tags">
-            <span class="tag backend">Back-End</span>
-            <span class="tag python">Python</span>
-            <span class="tag java">Java</span>
+            <span class="tag1 tag">Back-End</span>
+            <span class="tag2 tag">Python</span>
+            <span class="tag3 tag">Java</span>
           </div>
             <button class="btn-portfolio">Portfólio</button>
         </div>
         
-    </div>
-
-    <div class="cartao"  data-aos="fade-up" data-aos-delay="200">
-       <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100?img=2" alt="Foto de José Augusto" />
-          <h3>André Augusto</h3>
-          <div class="tags">
-            <span class="tag frontend">Front-End</span>
-            <span class="tag python">Python</span>
-            <span class="tag java">Java</span>
-          </div>
-            <button class="btn-portfolio">Portfólio</button>
-        </div>
-    </div>
-
-    <div class="cartao"  data-aos="fade-up" data-aos-delay="300">
-      <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100?img=3" alt="Foto de José Augusto" />
-          <h3>Pedro Augusto</h3>
-          <div class="tags">
-            <span class="tag backend">Back-End</span>
-            <span class="tag frontend">Front-End</span>
-            <span class="tag java">Java</span>
-          </div>
-            <button class="btn-portfolio">Portfólio</button>
-        </div>
-    </div>
-
-    <div class="cartao"  data-aos="fade-up" data-aos-delay="400">
-      <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100?img=4" alt="Foto de José Augusto" />
-          <h3>Carlos Augusto</h3>
-          <div class="tags">
-            <span class="tag backend">Back-End</span>
-            <span class="tag python">Python</span>
-            <span class="tag frontend">Front-End</span>
-          </div>
-            <button class="btn-portfolio">Portfólio</button>
-        </div>
-    </div>
-
-    <div class="cartao" data-aos="fade-up" data-aos-delay="100">
-     <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100?img=5" alt="Foto de José Augusto" />
-          <h3>Ana Maria</h3>
-          <div class="tags">
-            <span class="tag backend">Back-End</span>
-            <span class="tag python">Python</span>
-            <span class="tag java">Java</span>
-          </div>
-            <button class="btn-portfolio">Portfólio</button>
-        </div>
-    </div>
-
-    <div class="cartao" data-aos="fade-up" data-aos-delay="200">
-      <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100?img=6" alt="Foto de José Augusto" />
-          <h3>Maria Julia</h3>
-          <div class="tags">
-            <span class="tag backend">Back-End</span>
-            <span class="tag python">Python</span>
-            <span class="tag java">Java</span>
-          </div>
-            <button class="btn-portfolio">Portfólio</button>
-        </div>
-    </div>
-
-    <div class="cartao" data-aos="fade-up" data-aos-delay="300">
-      <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100?img=7" alt="Foto de José Augusto" />
-          <h3>José Augusto</h3>
-          <div class="tags">
-            <span class="tag backend">Back-End</span>
-            <span class="tag python">Python</span>
-            <span class="tag java">Java</span>
-          </div>
-            <button class="btn-portfolio">Portfólio</button>
-        </div>
-    </div>
-
-    <div class="cartao" data-aos="fade-up" data-aos-delay="400">
-     <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100?img=8" alt="Foto de José Augusto" />
-          <h3>José Augusto</h3>
-          <div class="tags">
-            <span class="tag backend">Back-End</span>
-            <span class="tag python">Python</span>
-            <span class="tag java">Java</span>
-          </div>
-            <button class="btn-portfolio">Portfólio</button>
-        </div>
-    </div>
-
-    <div class="cartao" data-aos="fade-up" data-aos-delay="100">
-      <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100?img=9" alt="Foto de José Augusto" />
-          <h3>José Augusto</h3>
-          <div class="tags">
-            <span class="tag backend">Back-End</span>
-            <span class="tag python">Python</span>
-            <span class="tag java">Java</span>
-          </div>
-            <button class="btn-portfolio">Portfólio</button>
-        </div>
-    </div>
-
-    <div class="cartao" data-aos="fade-up" data-aos-delay="200">
-      <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100?img=10" alt="Foto de José Augusto" />
-          <h3>José Augusto</h3>
-          <div class="tags">
-            <span class="tag backend">Back-End</span>
-            <span class="tag python">Python</span>
-            <span class="tag java">Java</span>
-          </div>
-            <button class="btn-portfolio">Portfólio</button>
-        </div>
-    </div>
-
-    <div class="cartao" data-aos="fade-up" data-aos-delay="300">
-      <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100?img=11" alt="Foto de José Augusto" />
-          <h3>José Augusto</h3>
-          <div class="tags">
-            <span class="tag backend">Back-End</span>
-            <span class="tag python">Python</span>
-            <span class="tag java">Java</span>
-          </div>
-            <button class="btn-portfolio">Portfólio</button>
-        </div>
-    </div>
-
-    <div class="cartao" data-aos="fade-up" data-aos-delay="400">
-      <div class="cartao-inner">
-          <img src="https://i.pravatar.cc/100?img=12" alt="Foto de José Augusto" />
-          <h3>José Augusto</h3>
-          <div class="tags">
-            <span class="tag backend">Back-End</span>
-            <span class="tag python">Python</span>
-            <span class="tag java">Java</span>
-          </div>
-            <button class="btn-portfolio">Portfólio</button>
-        </div>
     </div>
   </main>
 
@@ -248,17 +106,17 @@
     </div>
 </footer>
 
-    <script src="script.js"></script>
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    AOS.init({
-        duration: 800, // tempo da animação (em ms)
-        once: false,    // para que a animação ocorra mais de uma vez
-        mirror: true,
-        offset: 120, // experimenta aumentar para 200 ou 300
-    });
-    </script>
+<script src="script.js"></script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({
+    duration: 800, // tempo da animação (em ms)
+    once: false,    // para que a animação ocorra mais de uma vez
+    mirror: true,
+    offset: 120, // experimenta aumentar para 200 ou 300
+});
+</script>
 
 </body>
 </html>

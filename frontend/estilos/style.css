@@ -33,7 +33,9 @@ body {
   height: 8vh;
   max-height: 91px;
 }
-
+.logo:hover{
+  cursor: pointer;
+}
 .site-header .nav ul {
   list-style: none;
   display: flex;
@@ -131,7 +133,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
 }
 
 .cartao-inner:hover {
@@ -255,13 +256,3 @@ footer nav a:hover {
 }
 }
 
-[data-aos] {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-[data-aos].aos-animate {
-  opacity: 1;
-  transform: translateY(0);
-}

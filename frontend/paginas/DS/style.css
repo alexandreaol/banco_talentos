@@ -216,7 +216,9 @@ main {
   margin: 0 auto;
 }
 
-
+.cartao{
+  display: none; /* Oculta o modelo */
+}
 .cartao-inner {
   background-color: #F3F3F3;
   width: 100%;
@@ -281,17 +283,17 @@ main {
   border-color: #ff6b6b;
 }
 
-.frontend {
+.tag1 {
   color: #ff956b;
   border-color: #ff956b;
 }
 
-.python {
+.tag2 {
   color: #3477a1;
   border-color: #3477a1;
 }
 
-.java {
+.tag3 {
   color: #f89820;
   border-color: #f89820;
 }
@@ -485,13 +487,35 @@ footer nav a:hover {
   }
 }
 
-[data-aos] {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.tooltip-container {
+  position: relative;
+  display: inline-block;
 }
 
-[data-aos].aos-animate {
+.tooltip-img {
+  height: auto;
+  cursor: pointer;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  background-color: #1b1b1b;
+  color: #ffffff;
+  padding: 10px 10px;
+  border-radius: 6px;
+  position: absolute;
+  white-space: nowrap;
+  top: 50%;
+  left: 100%; /* direita da imagem */
+  transform: translateY(-50%);
+  margin-left: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
   opacity: 1;
-  transform: translateY(0);
 }
