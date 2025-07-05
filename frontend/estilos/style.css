@@ -133,6 +133,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 422px;
 }
 
 .cartao-inner:hover {
